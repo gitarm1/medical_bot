@@ -1,1 +1,1 @@
-worker: python mm.py
+worker: python app.py
