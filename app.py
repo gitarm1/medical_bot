@@ -2,8 +2,26 @@ import telebot
 from telebot import types
 
 bot = telebot.TeleBot("1397565480:AAGG25AIQizfuyim14v0oTTz_upuG2IDTyM")
-admin_id = 64189817 #491657362
+admin_id = 1139178722 #491657362
 need_help_id = None
+need_help = None
+
+teeth = ("Кариес", "пульпит", "киста", "кисту", "пломба", "пломбу", "вылечить", "лечить", "лечение", "канал", "каналу", "дырка", "болит", "боль", "ноет", "нерв")
+implantant = ("имплантация", "имплантат", "имплант", "вставить", "искусственный", "astra", "antogym", "dentium")
+protezis = ("all on 4", "мост", "протез", "протезирование", "несъемные", "съемные", "бюгельные", "покрывные")
+kids = ("детей", "ребенок", "детский", "ребенку")
+vinirs = ("виниры", "керамические", "композитные", "накладки")
+desenn = ("Десны", "десна", "кровоточит", "воспалилась")
+xirurgg = ("хирургия", "хирург", "синус", "лифтинг", "резекция", "корень", "удаление", "удалить", "корня", "мудрости", "коренного", "коренной")
+teeth_clean = ("ультразвуковая", "ультразвук", "чистка", "отчистить", "почистить", "air flow", "камень", "камня")
+teeth_esim = ("отбеливание", "отбелить", "скайсы", "стразы")
+prikus = ("брекеты", "элайнеры", "прикус", "прикуса", "исправить", "исправление")
+
+def merge(ls1,ls2):
+    for item in ls1:
+        if item in ls2:
+            return True
+
 
 @bot.message_handler(commands=['start'])
 def any_msg(message):
@@ -17,22 +35,103 @@ def any_msg(message):
 
 @bot.message_handler(content_types=['text'])
 def send_text(message):
-    global need_help_id
-    print(message)
-    if need_help_id and message.chat.id == need_help_id:
-        bot.send_message(message.chat.id, 'Ваш вопрос передан врачам, через несколько минут Вам ответят...')
+
+
+    ls4 = message.text.split()
+    if merge(ls4,teeth) == True:
+        need_help_id = message.chat.id
+        with open("items.txt" , "w+") as f:
+            f.write(str(need_help_id))
+        print(need_help_id)
+
+        bot.send_message(message.chat.id, """Вам подходит раздел «Лечение зубов»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+    elif merge(ls4,implantant):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Имплантация»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+    elif merge(ls4,protezis):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Протезирование»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+
+
+    elif merge(ls4,kids):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Детская стоматология»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+
+    elif merge(ls4,vinirs):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Виниры»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+
+    elif merge(ls4,desenn):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Лечение десен»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+
+    elif merge(ls4,xirurgg):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Хирургия»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+
+    elif merge(ls4,teeth_clean):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Чистка зубов»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+    elif merge(ls4,teeth_esim):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Эстетическая стоматология»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+    elif merge(ls4,prikus):
+        bot.send_message(message.chat.id, """Вам подходит раздел «Исправление прикуса»🦷
+
+Ваш вопрос передан врачам, через несколько минут Вам ответят...""")
+        bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
+
+    elif message.chat.id == admin_id:
+        bot.send_message(admin_id, 'Ваш ответ передан пользователю.')
+        with open("items.txt" , "r") as f:
+            need = f.read()
+        print(need)
+
+        bot.send_message(int(need), 'Ответ от врача:\n' + message.text)
+
+    global need_help
+
+    if need_help and message.chat.id == need_help:
+        bot.send_message(message.chat.id, 'Ваш вопрос передан администраторам, через несколько минут Вам ответят...')
 
         bot.send_message(admin_id, 'Вопрос от пользователя:\n' + message.text)
     elif message.chat.id == admin_id:
-        bot.send_message(message.chat.id, 'Ваш ответ передан пользователю.')
+        # bot.send_message(message.chat.id, 'Ваш овтет передан пользователю.')
 
-        bot.send_message(need_help_id, 'Ответ от врача:\n' + message.text)
+        bot.send_message(need_help, 'Ответ от администратора:\n' + message.text)
         need_help = None
-
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
-    global need_help_id
+    global need_help
 
     if call.message:
         if call.data == "kazan":
@@ -79,9 +178,10 @@ def callback_inline(call):
             bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
 Или выберите подходящую категорию""", reply_markup=keyboard)
 
-        if call.data == "zubi":
-            bot.send_message(call.message.chat.id, 'Напишите запрос:')
-            need_help_id = call.message.chat.id
+        if call.data == "zubi" or call.data == "zubi" or call.data == "implant" or call.data == "protez" or call.data == "erexeq" or call.data == "vinir" or call.data == "desen" or call.data == "xirurg" or call.data == "zubi_ch" or call.data == "estet":
+            bot.send_message(call.message.chat.id, 'Напишите вопрос:')
+            need_help = call.message.chat.id
+
 
 
 bot.polling()
