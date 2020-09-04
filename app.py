@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 
 bot = telebot.TeleBot("1390952647:AAFSCxQtduW6AcyTHagmGCVPMWjMx3-DSQc")
-admin_id = 1139178722 #491657362
+admin_id = 1398279961 #491657362
 need_help_id = None
 need_help = None
 
