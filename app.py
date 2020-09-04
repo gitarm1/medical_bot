@@ -3,7 +3,7 @@ from telebot import types
 import codecs
 
 bot = telebot.TeleBot("1390952647:AAFSCxQtduW6AcyTHagmGCVPMWjMx3-DSQc")
-admin_id = 491657362
+admin_id = 1398279961
 need_help_id = None
 need_help = None
 
