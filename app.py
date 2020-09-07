@@ -3,7 +3,7 @@ from telebot import types
 import codecs
 
 bot = telebot.TeleBot("1390952647:AAFSCxQtduW6AcyTHagmGCVPMWjMx3-DSQc")
-admin_id = 1398279961
+admin_id = 491657362
 need_help_id = None
 need_help = None
 
@@ -129,13 +129,19 @@ def send_text(message):
         l = codecs.open("razdel.txt", "r+", "utf-8")
         razdel = l.read()
         l.close()
+
+        h = codecs.open("adres.txt", "w+", "utf-8")
+        adres = h.read()
+        h.close()
+
         bot.send_message(admin_id, """Пользователь - @{},
 Имя - {},
 Город - {},
+Адрес - {},
 Раздел - {}
 
 {}
-""".format(message.from_user.username,message.from_user.first_name, gorod, razdel, message.text))
+""".format(message.from_user.username,message.from_user.first_name, gorod, adres, razdel, message.text))
     elif message.chat.id == admin_id:
         # bot.send_message(message.chat.id, 'Ваш овтет передан пользователю.')
 
@@ -180,7 +186,10 @@ def callback_inline(call):
 
 
 
-        if call.data == "4" or call.data == "5" or call.data == "6" or call.data == "7" or call.data == "8" or call.data == "9" or call.data == "10" or call.data == "11":
+        if call.data == "4":
+            h = codecs.open("adres.txt", "w+", "utf-8")
+            h.write("ул. Чистопольская, 15")
+            h.close()
 
             keyboard = types.InlineKeyboardMarkup(row_width=1)
             zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
@@ -197,6 +206,163 @@ def callback_inline(call):
             keyboard.add(zubi, implant, protez, erexeq, vinir, desen, xirurg, zubi_ch, estet)
             bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
 Или выберите подходящую категорию""", reply_markup=keyboard)
+
+        if call.data == "5":
+            h = codecs.open("adres.txt", "w+", "utf-8")
+            h.write("ул. Адоратского, 3")
+            h.close()
+
+            keyboard = types.InlineKeyboardMarkup(row_width=1)
+            zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
+            implant = types.InlineKeyboardButton(text="Имплантация", callback_data="implant")
+            protez = types.InlineKeyboardButton(text="Протезирование", callback_data="protez")
+            erexeq = types.InlineKeyboardButton(text="Детская стоматология", callback_data="erexeq")
+            vinir = types.InlineKeyboardButton(text="Виниры", callback_data="vinir")
+            desen = types.InlineKeyboardButton(text="Лечение десен", callback_data="desen")
+            xirurg = types.InlineKeyboardButton(text="Хирургия", callback_data="xirurg")
+            zubi_ch = types.InlineKeyboardButton(text="Чистка зубов", callback_data="zubi_ch")
+            estet = types.InlineKeyboardButton(text="Эстетическая стоматология", callback_data="estet")
+
+
+            keyboard.add(zubi, implant, protez, erexeq, vinir, desen, xirurg, zubi_ch, estet)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
+Или выберите подходящую категорию""", reply_markup=keyboard)
+
+        if call.data == "6":
+            h = codecs.open("adres.txt", "w+", "utf-8")
+            h.write("ул. Павлюхина, 87")
+            h.close()
+
+            keyboard = types.InlineKeyboardMarkup(row_width=1)
+            zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
+            implant = types.InlineKeyboardButton(text="Имплантация", callback_data="implant")
+            protez = types.InlineKeyboardButton(text="Протезирование", callback_data="protez")
+            erexeq = types.InlineKeyboardButton(text="Детская стоматология", callback_data="erexeq")
+            vinir = types.InlineKeyboardButton(text="Виниры", callback_data="vinir")
+            desen = types.InlineKeyboardButton(text="Лечение десен", callback_data="desen")
+            xirurg = types.InlineKeyboardButton(text="Хирургия", callback_data="xirurg")
+            zubi_ch = types.InlineKeyboardButton(text="Чистка зубов", callback_data="zubi_ch")
+            estet = types.InlineKeyboardButton(text="Эстетическая стоматология", callback_data="estet")
+
+
+            keyboard.add(zubi, implant, protez, erexeq, vinir, desen, xirurg, zubi_ch, estet)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
+Или выберите подходящую категорию""", reply_markup=keyboard)
+
+
+        if call.data == "7":
+            h = codecs.open("adres.txt", "w+", "utf-8")
+            h.write("ул. Фучика, 88")
+            h.close()
+
+            keyboard = types.InlineKeyboardMarkup(row_width=1)
+            zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
+            implant = types.InlineKeyboardButton(text="Имплантация", callback_data="implant")
+            protez = types.InlineKeyboardButton(text="Протезирование", callback_data="protez")
+            erexeq = types.InlineKeyboardButton(text="Детская стоматология", callback_data="erexeq")
+            vinir = types.InlineKeyboardButton(text="Виниры", callback_data="vinir")
+            desen = types.InlineKeyboardButton(text="Лечение десен", callback_data="desen")
+            xirurg = types.InlineKeyboardButton(text="Хирургия", callback_data="xirurg")
+            zubi_ch = types.InlineKeyboardButton(text="Чистка зубов", callback_data="zubi_ch")
+            estet = types.InlineKeyboardButton(text="Эстетическая стоматология", callback_data="estet")
+
+
+            keyboard.add(zubi, implant, protez, erexeq, vinir, desen, xirurg, zubi_ch, estet)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
+Или выберите подходящую категорию""", reply_markup=keyboard)
+
+
+        if call.data == "8":
+            h = codecs.open("adres.txt", "w+", "utf-8")
+            h.write("пр. Победы, 152/33")
+            h.close()
+
+            keyboard = types.InlineKeyboardMarkup(row_width=1)
+            zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
+            implant = types.InlineKeyboardButton(text="Имплантация", callback_data="implant")
+            protez = types.InlineKeyboardButton(text="Протезирование", callback_data="protez")
+            erexeq = types.InlineKeyboardButton(text="Детская стоматология", callback_data="erexeq")
+            vinir = types.InlineKeyboardButton(text="Виниры", callback_data="vinir")
+            desen = types.InlineKeyboardButton(text="Лечение десен", callback_data="desen")
+            xirurg = types.InlineKeyboardButton(text="Хирургия", callback_data="xirurg")
+            zubi_ch = types.InlineKeyboardButton(text="Чистка зубов", callback_data="zubi_ch")
+            estet = types.InlineKeyboardButton(text="Эстетическая стоматология", callback_data="estet")
+
+
+            keyboard.add(zubi, implant, protez, erexeq, vinir, desen, xirurg, zubi_ch, estet)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
+Или выберите подходящую категорию""", reply_markup=keyboard)
+
+
+        if call.data == "9":
+            h = codecs.open("adres.txt", "w+", "utf-8")
+            h.write("Ф. Амирхана, 23")
+            h.close()
+
+            keyboard = types.InlineKeyboardMarkup(row_width=1)
+            zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
+            implant = types.InlineKeyboardButton(text="Имплантация", callback_data="implant")
+            protez = types.InlineKeyboardButton(text="Протезирование", callback_data="protez")
+            erexeq = types.InlineKeyboardButton(text="Детская стоматология", callback_data="erexeq")
+            vinir = types.InlineKeyboardButton(text="Виниры", callback_data="vinir")
+            desen = types.InlineKeyboardButton(text="Лечение десен", callback_data="desen")
+            xirurg = types.InlineKeyboardButton(text="Хирургия", callback_data="xirurg")
+            zubi_ch = types.InlineKeyboardButton(text="Чистка зубов", callback_data="zubi_ch")
+            estet = types.InlineKeyboardButton(text="Эстетическая стоматология", callback_data="estet")
+
+
+            keyboard.add(zubi, implant, protez, erexeq, vinir, desen, xirurg, zubi_ch, estet)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
+Или выберите подходящую категорию""", reply_markup=keyboard)
+
+
+
+        if call.data == "10":
+            h = codecs.open("adres.txt", "w+", "utf-8")
+            h.write("ул. Ленина, 113")
+            h.close()
+
+            keyboard = types.InlineKeyboardMarkup(row_width=1)
+            zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
+            implant = types.InlineKeyboardButton(text="Имплантация", callback_data="implant")
+            protez = types.InlineKeyboardButton(text="Протезирование", callback_data="protez")
+            erexeq = types.InlineKeyboardButton(text="Детская стоматология", callback_data="erexeq")
+            vinir = types.InlineKeyboardButton(text="Виниры", callback_data="vinir")
+            desen = types.InlineKeyboardButton(text="Лечение десен", callback_data="desen")
+            xirurg = types.InlineKeyboardButton(text="Хирургия", callback_data="xirurg")
+            zubi_ch = types.InlineKeyboardButton(text="Чистка зубов", callback_data="zubi_ch")
+            estet = types.InlineKeyboardButton(text="Эстетическая стоматология", callback_data="estet")
+
+
+            keyboard.add(zubi, implant, protez, erexeq, vinir, desen, xirurg, zubi_ch, estet)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
+Или выберите подходящую категорию""", reply_markup=keyboard)
+
+
+
+        if call.data == "11":
+            h = codecs.open("adres.txt", "w+", "utf-8")
+            h.write("ул. Ленина, 50")
+            h.close()
+
+            keyboard = types.InlineKeyboardMarkup(row_width=1)
+            zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
+            implant = types.InlineKeyboardButton(text="Имплантация", callback_data="implant")
+            protez = types.InlineKeyboardButton(text="Протезирование", callback_data="protez")
+            erexeq = types.InlineKeyboardButton(text="Детская стоматология", callback_data="erexeq")
+            vinir = types.InlineKeyboardButton(text="Виниры", callback_data="vinir")
+            desen = types.InlineKeyboardButton(text="Лечение десен", callback_data="desen")
+            xirurg = types.InlineKeyboardButton(text="Хирургия", callback_data="xirurg")
+            zubi_ch = types.InlineKeyboardButton(text="Чистка зубов", callback_data="zubi_ch")
+            estet = types.InlineKeyboardButton(text="Эстетическая стоматология", callback_data="estet")
+
+
+            keyboard.add(zubi, implant, protez, erexeq, vinir, desen, xirurg, zubi_ch, estet)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,  text = """Пожалуйста, напишите причину обращения.
+Или выберите подходящую категорию""", reply_markup=keyboard)
+
+
+
 
         if call.data == "zubi":
             l = codecs.open("razdel.txt", "w+", "utf-8")
