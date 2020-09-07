@@ -129,7 +129,7 @@ def send_text(message):
         l = codecs.open("razdel.txt", "r+", "utf-8")
         razdel = l.read()
         l.close()
-        bot.send_message(admin_id, """Пользователь - {},
+        bot.send_message(admin_id, """Пользователь - @{},
 Имя - {},
 Город - {},
 Раздел - {}
