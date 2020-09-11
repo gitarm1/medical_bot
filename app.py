@@ -130,7 +130,7 @@ def send_text(message):
         razdel = l.read()
         l.close()
 
-        h = codecs.open("adres.txt", "w+", "utf-8")
+        h = codecs.open("adres.txt", "r+", "utf-8")
         adres = h.read()
         h.close()
 
