@@ -232,6 +232,7 @@ def callback_inline(call):
             h = codecs.open("adres.txt", "w+", "utf-8")
             h.write("ул. Павлюхина, 87")
             h.close()
+            print("creater")
 
             keyboard = types.InlineKeyboardMarkup(row_width=1)
             zubi = types.InlineKeyboardButton(text="Лечение зубов", callback_data="zubi")
